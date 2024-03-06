@@ -24,7 +24,12 @@
         pkgs.nodejs
         pkgs.nodePackages.wrangler        
       ];
-      PATH = [ "~/.cargo/bin" ];
+      shellHook = ''
+        export PATH="$PWD/.cargo/bin:$PATH"
+        export CARGO_TARGET_DIR="./.cargo_target"
+        export CARGO_HOME="./.cargo"
+        
+      '';
     };
   };
 }

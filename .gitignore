@@ -7,5 +7,5 @@ wasm-pack.log
 build/
 /target
 /dist
-./cargo
-./cargo_target
+/.cargo
+/.cargo_target
