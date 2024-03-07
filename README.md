@@ -2,7 +2,7 @@
 
 
 ## Serverless hastebin on cloudflare workers
-Demo https://hasteless.nyakawaii.workers.dev
+Demo https://haste.eww.workers.dev
 
 Static files are from https://github.com/toptal/haste-server
 
@@ -14,4 +14,4 @@ Static files are from https://github.com/toptal/haste-server
 5. Copy `HASTE_POSTS` id, open wrangler.toml file and edit `KV_ID` to your copied id
 6. Run `wrangler deploy`, it should build the app and ask for authorization on Cloudflare
 7. Wait before it publishes the app
-8. Go to `Workers & Pages` again, your hasteless application should be running, you can check its domain via clicking it & selecting `Triggers` and there should be "Routes", which is a domain to your hasteless application 
+8. Go to `Workers & Pages` again, your hasteless application should be running, you can check its domain via clicking it & selecting `Triggers` and there should be `Routes`, which is a domain to your hasteless application 
