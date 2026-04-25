@@ -3,7 +3,7 @@ main = "build/worker/shim.mjs"
 compatibility_date = "2026-01-31"
 
 kv_namespaces = [
-  { binding = "HASTE_POSTS", id = "KV_ID" }
+  { binding = "HASTE_POSTS", id = "2324f14560404c13a69bf3dac357b704" }
 ]
 
 [build]
