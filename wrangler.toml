@@ -1,4 +1,4 @@
-name = "hasteless"
+name = "haste"
 main = "build/worker/shim.mjs"
 compatibility_date = "2026-01-31"
 
