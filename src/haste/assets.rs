@@ -12,6 +12,8 @@ pub static ABOUT_MD: &str = include_str!("../static/about.md");
 lazy_static! {
   pub static ref ASSETS: HashMap<String, AssetType<'static>> = { // storing assets directly in worker's WASM binary
       let mut m = HashMap::new();
+      m.insert(String::from("highlight.min.js"), AssetType::Str(include_str!("../static/highlight.min.js")));
+      m.insert(String::from("jquery.min.js"), AssetType::Str(include_str!("../static/jquery.min.js")));
       m.insert(String::from("application.css"), AssetType::Str(include_str!("../static/application.css")));
       m.insert(String::from("application.min.js"), AssetType::Str(include_str!("../static/application.min.js")));
       m.insert(String::from("favicon.ico"), AssetType::Bytes(include_bytes!("../static/favicon.ico")));

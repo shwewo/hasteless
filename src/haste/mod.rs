@@ -16,7 +16,7 @@ pub async fn get(_request: Request, context: RouteContext<()>) -> worker::Result
   let mut asset = context.param("id")
     .map(String::as_str)
     .unwrap_or("index.html"); // asset or falling back to index.html
-  let mut headers = Headers::new();
+  let headers = Headers::new();
 
   if ASSETS.contains_key(asset) {
     headers.set("Content-Type", get_mime_from_path(asset)).unwrap();
@@ -53,13 +53,13 @@ pub async fn post(mut request: Request, context: RouteContext<()>) -> worker::Re
   let mnemonic = Mnemonic::from_entropy(&bytes[..]).unwrap();
   let mut filename = String::new();
 
-  for (_, word) in mnemonic.word_iter().take(3).enumerate() {
+  for (_, word) in mnemonic.words().take(3).enumerate() {
     filename.push_str(word);
   };
 
   match put_value(filename.as_str(), file, &context).await {
     Ok(_) => {
-      let mut headers = Headers::new();
+      let headers = Headers::new();
       headers.set("Content-Type", "application/json").unwrap();
       let response = json!({"key": filename}).to_string();
       Ok(Response::ok(response)?.with_headers(headers))
@@ -94,7 +94,7 @@ async fn get_file(asset: String, context: &RouteContext<()>) -> Result<Option<(S
 
 pub async fn get_document(request: Request, context: RouteContext<()>) -> worker::Result<Response> {
   let asset = context.param("id").map(String::as_str).unwrap_or("aboud.md");
-  let mut headers = Headers::new();
+  let headers = Headers::new();
 
   if asset == "about" {
     headers.set("Content-Type", "application/json").unwrap();
